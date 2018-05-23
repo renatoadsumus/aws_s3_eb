@@ -1,0 +1,17 @@
+{
+  "AWSEBDockerrunVersion": "1",
+  "Image": {
+	"Name":""
+  },
+  "Ports": [
+	{"ContainerPort":"80"}
+  ],
+
+  "environment": [
+  {
+    "name": "GERU_PASS",
+    "value": "bb9d39952d714b3c9d73c70a8ba07057"
+  }
+],
+  "Logging": "/var/log/"
+}
