@@ -1,20 +1,15 @@
 pipeline {
-    agent any 
-    parameters {
-       
-         string(defaultValue: "", description: 'Credencias da AWS', name: 'AWS_ACCESS_KEY_ID')
-		 string(defaultValue: "", description: 'Credencias da AWS', name: 'AWS_SECRET_ACCESS_KEY')
-    }
+    agent any    
     
     stages {		
 		
         stage('Deploy') { 
             steps {
-                echo "Realizando Deploy S3 e EB" 	
+                echo "Realizando Deploy S3 e EB" 							
+			sh "docker run -d --rm -e AWS_ACCESS_KEY_ID='${params.AWS_ACCESS_KEY_ID}' -e AWS_SECRET_ACCESS_KEY='${params.AWS_SECRET_ACCESS_KEY}' -e VERSAO='${env.BUILD_ID}' -e OPCAO='Deploy' renatoadsumus/aws_cli:latest"
 				          
             }
-        }	
-			
+        }		
         
     }
  }
