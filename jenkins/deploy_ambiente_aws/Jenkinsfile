@@ -1,0 +1,20 @@
+pipeline {
+    agent any 
+    parameters {
+       
+         string(defaultValue: "", description: 'Credencias da AWS', name: 'AWS_ACCESS_KEY_ID')
+		 string(defaultValue: "", description: 'Credencias da AWS', name: 'AWS_SECRET_ACCESS_KEY')
+    }
+    
+    stages {		
+		
+        stage('Deploy') { 
+            steps {
+                echo "Realizando Deploy S3 e EB" 	
+				          
+            }
+        }	
+			
+        
+    }
+ }
