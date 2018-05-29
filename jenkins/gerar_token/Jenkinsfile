@@ -1,0 +1,14 @@
+pipeline {
+    agent any    
+    
+    stages {		
+		
+        stage('Gerar token') { 
+			steps {							
+				sh "chmod +x jenkins/gerar_token/gerar_token.sh"
+				sh "./jenkins/gerar_token/gerar_token.sh"							
+			}			
+		}
+        
+    }
+ }
