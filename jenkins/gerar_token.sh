@@ -16,5 +16,4 @@ git add .
 git commit -m "Alterando novo valor de token"
 
 sleep 2
-git commit --amend --reset-author
 git push
