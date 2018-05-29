@@ -8,10 +8,13 @@ Existem três cenários para realizar deploy de uma nova versão da aplicação 
 
 Como premissa será necessário possuir IAM na AWS com permissão para gerenciar os serviços Elastic Beanstalk e S3 Bucket.
 
+Necessário as chaves AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY.
+
 Todos os códigos usados utilizados na solução estão no Git Hub.
 
-Duas imagens docker foram utilizadas na solução e ambas estão no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins
+As imagens docker utilizadas na solução podem ser encontradas no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins
 
+A aplicação possui um Dockerfile e sua imagem será construída dinamicamente durante o deploy no Elastic Beanstalk
 
 ## Cenário 1 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS manual
 
