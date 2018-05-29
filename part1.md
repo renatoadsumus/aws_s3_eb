@@ -9,6 +9,7 @@ Existem três cenários para realizar deploy de uma nova versão da aplicação 
 Como premissa será necessário possuir IAM na AWS com permissão para gerenciar os serviços Elastic Beanstalk e S3 Bucket.
 
 Todos os códigos usados utilizados na solução estão no Git Hub.
+
 Duas imagens docker foram utilizadas na solução e ambas estão no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins
 
 
@@ -23,11 +24,14 @@ Duas imagens docker foram utilizadas na solução e ambas estão no Docker Hub: 
 - Acessar console da AWS - https://console.aws.amazon.com/console
 
 - Criar uma nova aplicação e ambiente no serviço Elastic Beanstalk da AWS com as seguintes instruções:
--- Application name: app-geru-renato
--- Environment name: AppGeruRenato-env
--- Platform: Docker
--- Application code: Upload your code
--- Source code origin: realizar upload do Zip gerado no passo anterior
+- 'Environment information'
+- Application name: app-geru-renato
+- Environment name: AppGeruRenato-env
+- 'Base configuration'
+- Platform -> Preconfigured platform: Docker
+- Application code: Upload your code 
+- Source code origin: Local file - realizar upload do zip realizado
+- Clicar no botão "Create Environment"
 
 ## Cenário 2 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando docker
 
@@ -48,8 +52,8 @@ A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o códig
 
 ## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço<br />
 - Acessar o jenkins no seguinte endereço:
--- Usuario: admin
--- Senha: Geru@2018
+- Usuario: admin
+- Senha: Geru@2018
 
 - Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
 
