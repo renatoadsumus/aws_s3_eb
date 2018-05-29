@@ -11,10 +11,7 @@ pipeline {
 		stage('Gerar token') { 
 			steps {							
 				sh "chmod +x jenkins/gerar_token.sh"
-				sh "./jenkins/gerar_token.sh"				
-				sh "git commit -a -m 'Alterando novo valor de token'"
-				sh "git push"
-						
+				sh "./jenkins/gerar_token.sh"							
 			}			
 		}
 		
