@@ -12,6 +12,7 @@ pipeline {
 			steps {							
 				sh "chmod +x jenkins/gerar_token.sh"
 				sh "./jenkins/gerar_token.sh"
+				sh "chown --recursive $(whoami) ."
 				sh "git commit -a -m 'Alterando novo valor de token'"
 				sh "git push"
 						
