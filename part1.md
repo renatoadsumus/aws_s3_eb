@@ -9,9 +9,10 @@ Existem três cenários para realizar deploy de uma nova versão da aplicação 
 Como premissa será necessário possuir IAM na AWS com permissão para gerenciar os serviços Elastic Beanstalk e S3 Bucket.
 
 Todos os códigos usados utilizados na solução estão no Git Hub.
+Duas imagens docker foram utilizadas na solução e ambas estão no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins
 
 
-# Cenário 1 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS manual
+## Cenário 1 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS manual
 
 - Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
 
@@ -28,7 +29,7 @@ Todos os códigos usados utilizados na solução estão no Git Hub.
 -- Application code: Upload your code
 -- Source code origin: realizar upload do Zip gerado no passo anterior
 
-# Cenário 2 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando docker
+## Cenário 2 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando docker
 
 - Premissa ter uma máquina com Docker instalado
 
@@ -45,7 +46,7 @@ run -d --rm -e AWS_ACCESS_KEY_ID='' -e AWS_SECRET_ACCESS_KEY='' -e VERSAO='1' -e
 
 A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o código no Git Hub: https://github.com/renatoadsumus/aws_cli.git
 
-# Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço<br />
+## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço<br />
 - Acessar o jenkins no seguinte endereço:
 -- Usuario: admin
 -- Senha: Geru@2018
