@@ -13,7 +13,10 @@ sed -i -e "s/TROCAR/$token/g" aws_eb/Dockerrun.aws.json
 
 sleep 2
 git add .
+sleep 2
 git commit -m "Alterando novo valor de token"
 
-sleep 2
+sleep 10
+git pull
+sleep 5
 git push
