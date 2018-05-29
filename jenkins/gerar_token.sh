@@ -16,7 +16,7 @@ git add .
 sleep 2
 git commit -m "Alterando novo valor de token"
 
-sleep 10
+sleep 5
 git pull
 sleep 5
 git push
