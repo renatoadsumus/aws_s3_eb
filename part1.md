@@ -53,9 +53,9 @@ run -d --rm -e AWS_ACCESS_KEY_ID='' -e AWS_SECRET_ACCESS_KEY='' -e VERSAO='1' -e
 
 A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o código no Git Hub: https://github.com/renatoadsumus/aws_cli.git
 
-## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço<br />
+## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço
 - Acessar o jenkins no seguinte endereço:
-- Usuario: admin
+- Usuario: geru
 - Senha: Geru@2018
 
 - Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
@@ -66,13 +66,18 @@ A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o códig
 
 - Realizar o git commit e git push para atualizar o Git Hub com o novo arquivo Dockerrun.aws.json
 
-- Construir o job do jenkins - Criar Ambiente AWS - o job irá criar os ambientes na AWS através dos serviços S3 e Elastic Beanstalk, inclusive realizando o primeiro deploy.
+- Construir o job do jenkins - Criar e Fazer Primeiro no Ambientes S3 e Elasctic Beanstalk - o job irá criar os ambientes na AWS através dos serviços S3 e Elastic Beanstalk, inclusive realizando o primeiro deploy.
 
-O jenkins desse cenário está usando Elastic Beanstalk na conta do Renato Coutinho da AWS com o código no Git Hub: https://github.com/renatoadsumus/docker_jenkins.git
+- Próximos deploys usar o job jenkins -
+
+O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de Renato Coutinho, com o código no Git Hub: https://github.com/renatoadsumus/docker_jenkins.git
 
 
-# Roadmap de melhoria:<br />
+# Roadmap de melhoria:
 - Ter um job único para gerar token, criar ambiente e realizar deploy de novas versões na AWS
 - Configurar "Swap Environment URLs" no EB para utilizar deploy Blue/Green
+
+# Arquitetura
+![alt text](https://github.com/renatoadsumus/geru_app/blob/master/processo_deplo_aws.jpg)
 
 
