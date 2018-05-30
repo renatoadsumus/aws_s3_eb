@@ -1,6 +1,6 @@
 # Objetivo:
 
-Esse documento tem como objetivo descrever os passos necessários para realizar deploy de uma aplicação em Python na AWS.
+Esse documento tem como objetivo descrever os passos necessários para realizar deploy de uma aplicação em Python na AWS. Os serviços utilizados da AWS são Elastic Beanstalk e Bucket S3.
 
 # Deploy:
 
@@ -8,13 +8,13 @@ Existem três cenários para realizar deploy de uma nova versão da aplicação 
 
 Como premissa será necessário possuir IAM na AWS com permissão para gerenciar os serviços Elastic Beanstalk e S3 Bucket.
 
-Necessário as chaves AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY.
+Possuir as chaves AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY.
 
 Todos os códigos usados utilizados na solução estão no Git Hub.
 
 As imagens docker utilizadas na solução podem ser encontradas no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins
 
-A aplicação possui um Dockerfile e sua imagem será construída dinamicamente durante o deploy no Elastic Beanstalk
+Este repositório possui um Dockerfile para instalar e subir aplicação Python, sua imagem será construída dinamicamente durante o deploy no Elastic Beanstalk, o token de autorização da aplicação será passado por variável de ambiente no momento do docker run, essa configuracão está localizada no arquivo Dockerrun.aws.json hospedado no S3.
 
 ## Cenário 1 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS manual
 
