@@ -1,5 +1,9 @@
 #!/bin/bash
 
+git clone https://github.com/renatoadsumus/geru_app.git
+
+cd geru_app
+
 rm -fr aws_eb/Dockerrun.aws.json
 cp aws_eb/Dockerrun.aws.template.json aws_eb/Dockerrun.aws.json
 token=`date +%s | sha256sum | base64 | head -c 32`
