@@ -13,7 +13,7 @@ echo "############# STAGE GERAR TOKEN ################"
 echo ""
 echo "NOVO TOKEN GERADO..: " $token
 echo ""
-echo 'curl -H "Authorization:'$token 'http://localhost/'
+echo 'EXEMPLO DE USO..: curl -H "Authorization:'$token 'http://localhost/'
 echo ""
 echo "###########################################"
 echo ""
