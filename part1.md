@@ -55,34 +55,29 @@ Este repositório possui um Dockerfile para instalar e subir aplicação Python,
 run -d --rm -e AWS_ACCESS_KEY_ID='XXXXXXXXXXX' -e AWS_SECRET_ACCESS_KEY='XXXXXXXXXXX' -e VERSAO='2' -e OPCAO='Deploy' renatoadsumus/aws_cli:latest
 
 
-
 A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o código no Git Hub: https://github.com/renatoadsumus/aws_cli.git
 
 ## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço.
+
 - Acessar o jenkins no seguinte endereço: http://jenkins-env-1.mtwr8ztwbd.us-east-1.elasticbeanstalk.com/
 - Usuario: geru
 - Senha: Geru@2018
 
-- Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
-
-- Construir o job do Jenkins - Gerar Novo Token de Autenticação - na saída do console procurar por "Novo Token Gerado" copiar o valor
-
-- Editar o arquivo Dockerrun.aws.json localizado dentro da pasta aws_eb alterando o token da variável GERU_PASS pelo novo token gerado pelo Jenkins
-
-- Realizar o git commit e git push para atualizar o Git Hub com o novo arquivo Dockerrun.aws.json
-
-- Construir o job do jenkins - Criar e Fazer Primeiro no Ambientes S3 e Elasctic Beanstalk - o job irá criar os ambientes na AWS através dos serviços S3 e Elastic Beanstalk, inclusive realizando o primeiro deploy.
+- Construir o job do jenkins - Criar e Fazer Primeiro Deploy na AWS - o job irá criar os ambientes na AWS através dos serviços S3 e Elastic Beanstalk, inclusive realizando o primeiro deploy.
 
 - Próximos deploys usar o job jenkins - Deploy App na AWS 
 
-Nesse cenário a versão do deploy no EB, será o valor da construção do build do job.
+**Observação**
+- Nesse cenário a versão do deploy no EB, será o valor da construção do build do job.
+- Na saída do console da execução do job terá o valor no token para acessar a aplicação.
 
 O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de Renato Coutinho, com o código no Git Hub: https://github.com/renatoadsumus/docker_jenkins.git
 
 
 # Roadmap de melhoria:
-- Ter um job único para gerar token, criar ambiente e realizar deploy
-- Configurar "Swap Environment URLs" no EB para utilizar deploy Blue/Green
+- Ter um job único para criar ambiente e realizar deploy.
+- Configurar "Swap Environment URLs" no EB para utilizar deploy Blue/Green.
+
 
 # Arquitetura
 ![alt text](https://github.com/renatoadsumus/geru_app/blob/master/processo_deplo_aws.jpg)

@@ -9,6 +9,13 @@ pipeline {
 	
     stages {		
 		
+		stage('Gerar token') { 
+			steps {							
+				sh "chmod +x jenkins/gerar_token.sh"
+				sh "./jenkins/gerar_token.sh"							
+			}			
+		}
+		
         stage('Deploy') { 
             steps {
                 echo "Realizando Deploy S3 e EB" 							
@@ -18,4 +25,10 @@ pipeline {
         }		
         
     }
+	
+	post {
+		always {
+		cleanWs()
+		}
+	}
  }

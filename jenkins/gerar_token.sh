@@ -9,9 +9,9 @@ cp aws_eb/Dockerrun.aws.template.json aws_eb/Dockerrun.aws.json
 token=`date +%s | sha256sum | base64 | head -c 32`
 echo ""
 echo ""
-echo "############# STEP GERAR TOKEN ################"
+echo "############# STAGE GERAR TOKEN ################"
 echo ""
-echo "Novo Token Gerado: " $token
+echo "NOVO TOKEN GERADO..: " $token
 echo ""
 echo 'curl -H "Authorization:'$token 'http://localhost/'
 echo ""
