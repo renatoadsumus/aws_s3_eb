@@ -6,7 +6,7 @@ token=`date +%s | sha256sum | base64 | head -c 32`
 echo "Novo Token Gerado: " $token
 sed -i -e "s/TROCAR/$token/g" aws_eb/Dockerrun.aws.json
 
-sh "git add ."
-sh 'git commit -a -m "Novo Token de Autenticacao Gerado"'
-sh "git status"
-#sh "cd geru_app; git push 'https://renatoadsumus:0bdecd73b2396e542f35e6d1a3b81be09f4e5402@github.com/renatoadsumus/geru_app.git' "
+git add .
+git commit -a -m "Novo Token de Autenticacao Gerado"
+git status
+#git push 'https://renatoadsumus:0bdecd73b2396e542f35e6d1a3b81be09f4e5402@github.com/renatoadsumus/geru_app.git' "
