@@ -9,15 +9,17 @@ RUN yum update -y \
         java-1.8.0-openjdk-devel -y \
         git
 
-RUN git clone https://github.com/geru-br/devops-challenge.git codigo_aplicacao
+RUN git clone https://github.com/renatoadsumus/geru_app.git codigo_aplicacao
 
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 && python get-pip.py
 
-RUN pip install flask \
-&& pip install flask_httpauth
+#RUN pip install flask \
+#&& pip install flask_httpauth
 
-#pip install -r requirements.txt
+COPY requirements.txt 
+
+pip install -r requirements.txt
 
 EXPOSE 80
 
