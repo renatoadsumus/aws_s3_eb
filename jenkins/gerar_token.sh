@@ -9,4 +9,4 @@ sed -i -e "s/TROCAR/$token/g" aws_eb/Dockerrun.aws.json
 git add .
 git commit -a -m "Novo Token de Autenticacao Gerado"
 git status
-git push https://renatoadsumus:da344bef6d5d2e61e63a73f4a41d90189916385a@github.com/renatoadsumus/geru_app.git
+git push https://renatoadsumus:880ec6cb27495b2b89cd3da69ff87b306c961cd3@github.com/renatoadsumus/geru_app.git HEAD
