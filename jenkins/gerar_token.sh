@@ -1,6 +1,8 @@
 #!/bin/bash
 
 git clone https://github.com/renatoadsumus/geru_app.git
+git config --global user.email "renatoadsumus@gmail.com"
+git config --global user.name "renatoadsumus"
 
 cd geru_app
 
@@ -13,7 +15,7 @@ echo "############# STAGE GERAR TOKEN ################"
 echo ""
 echo "NOVO TOKEN GERADO..: " $token
 echo ""
-echo 'EXEMPLO DE USO..: curl -H "Authorization:'$token 'http://localhost/'
+echo 'EXEMPLO DE USO..: curl -H "Authorization:'$token '"http://localhost/'
 echo ""
 echo "###########################################"
 echo ""
