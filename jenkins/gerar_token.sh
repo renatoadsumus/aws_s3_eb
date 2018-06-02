@@ -6,7 +6,7 @@ git config --global user.name "renatoadsumus"
 
 cd geru_app
 
-rm -fr aws_eb/Dockerrun.aws.json
+rm -fr aws_eb/.ebextensions/environmentvariables.config
 cp aws_eb/.ebextensions/environmentvariables.config_template aws_eb/.ebextensions/environmentvariables.config
 token=`date +%s | sha256sum | base64 | head -c 32`
 echo ""
@@ -15,7 +15,7 @@ echo "############# STAGE GERAR TOKEN ################"
 echo ""
 echo "NOVO TOKEN GERADO..: " $token
 echo ""
-echo 'EXEMPLO DE USO..: curl -H "Authorization:'$token '"http://localhost/'
+echo 'EXEMPLO DE USO..: curl -H "Authorization: Token '$token '"http://localhost/'
 echo ""
 echo "###########################################"
 echo ""
