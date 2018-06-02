@@ -23,7 +23,9 @@ Este repositório possui um Dockerfile para instalar e subir aplicação Python,
 
 - Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
 
-- Editar o arquivo Dockerrun.aws.json localizado dentro da pasta aws_eb alterando o token da variável GERU_PASS para um novo token gerado
+- Editar o token da variável GERU_PASS existente no arquivo aws_eb\.ebextensions\environmentvariables.config - Exemplo de um token MTgwNGJmZDNiMDI2NTBjZmIzZDJiMzA2
+
+- Exluir o arquivo aws_eb\.ebextensions\environmentvariables.config_template
 
 - Zipar todos os arquivos existentes na pasta aws_eb
 
@@ -45,9 +47,9 @@ Este repositório possui um Dockerfile para instalar e subir aplicação Python,
 
 - Acessar o código da aplicação no Git Hub através do comando git clone https://github.com/renatoadsumus/geru_app.git
 
-- Editar o arquivo Dockerrun.aws.json localizado dentro da pasta aws_eb alterando o token da variável GERU_PASS para um novo token gerado
+- Editar o token da variável GERU_PASS existente no arquivo aws_eb\.ebextensions\environmentvariables.config - Exemplo de um token MTgwNGJmZDNiMDI2NTBjZmIzZDJiMzA2
 
-- Realizar o git commit e git push para atualizar o Git Hub com o novo arquivo Dockerrun.aws.json
+- Executar o "git commit" e "git push" para atualizar o Git Hub com o novo arquivo aws_eb\.ebextensions\environmentvariables.config
 
 - Executar o seguinte comando docker para realizar o primeiro deploy e a criação do ambiente S3 e Elasctic Beanstalk na AWS: docker run -d --rm -e AWS_ACCESS_KEY_ID='XXXXXXXXXXX' -e AWS_SECRET_ACCESS_KEY='XXXXXXXXXXX' -e VERSAO='1' -e OPCAO='Novo' renatoadsumus/aws_cli:latest
 
@@ -81,5 +83,3 @@ O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de
 
 # Arquitetura
 ![alt text](https://github.com/renatoadsumus/geru_app/blob/master/processo_deplo_aws.jpg)
-
-
