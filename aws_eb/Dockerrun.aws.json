@@ -6,12 +6,5 @@
   "Ports": [
 	{"ContainerPort":"80"}
   ],
-
-  "environment": [
-  {
-    "name": "GERU_PASS",
-    "value": "MTgwNGJmZDNiMDI2NTBjZmIzZDJiMzA2"
-  }
-],
   "Logging": "/var/log/"
 }

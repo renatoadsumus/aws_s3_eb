@@ -17,9 +17,9 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py \
 #RUN pip install flask \
 #&& pip install flask_httpauth
 
-COPY requirements.txt 
+COPY requirements.txt /
 
-pip install -r requirements.txt
+RUN pip install -r requirements.txt
 
 EXPOSE 80
 

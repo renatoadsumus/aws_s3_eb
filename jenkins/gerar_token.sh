@@ -7,7 +7,7 @@ git config --global user.name "renatoadsumus"
 cd geru_app
 
 rm -fr aws_eb/Dockerrun.aws.json
-cp aws_eb/Dockerrun.aws.template.json aws_eb/Dockerrun.aws.json
+cp aws_eb/.ebextensions/environmentvariables.config_template aws_eb/.ebextensions/environmentvariables.config
 token=`date +%s | sha256sum | base64 | head -c 32`
 echo ""
 echo ""
@@ -20,7 +20,9 @@ echo ""
 echo "###########################################"
 echo ""
 echo ""
-sed -i -e "s/TROCAR/$token/g" aws_eb/Dockerrun.aws.json
+sed -i -e "s/TROCAR/$token/g" aws_eb/.ebextensions/environmentvariables.config
+
+sleep 3
 
 git add .
 git commit -a -m "Novo Token de Autenticacao Gerado"
