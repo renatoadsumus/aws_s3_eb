@@ -7,7 +7,7 @@ Esse documento tem como objetivo descrever os passos necessários do processo de
 
 Diante da diversidade de opções de serviços existentes na AWS com a capacidade de realizar deploy de container docker como por exemplo: Opsworks provisionando a instalação do Docker através do Puppet ou Chef , Amazon Container Service ou diretamente utilizando EC2, escolhi a arquitetura com Elasctic Beanstalk e S3 por uma questão de simplicidade e pela oportunidade de usar mais de um serviço da AWS. 
 
-Existem três cenários para realizar deploy de uma nova versão da aplicação da Geru, a diferença entre os cenários estão relacionados com o grau de automação do processo de deploy, sendo último cenário sendo praticamente todo realizado pelo jenkins.
+Existem três cenários para realizar deploy de uma nova versão da aplicação da Geru, a diferença entre os cenários estão relacionados com o grau de automação do processo de deploy, sendo último cenário todo realizado pelo jenkins.
 
 Como premissa será necessário possuir IAM na AWS com permissão para gerenciar os serviços Elastic Beanstalk e S3 Bucket.
 
@@ -17,7 +17,7 @@ Todos os códigos usados utilizados na solução estão no Git Hub.
 
 As imagens docker utilizadas na solução podem ser encontradas no Docker Hub: renatoadsumus/aws_cli e renatoadsumus/jenkins.
 
-Este repositório possui um Dockerfile para instalar e subir aplicação Python, sua imagem será construída dinamicamente durante o deploy no Elastic Beanstalk, o token de autorização da aplicação será passado por variável de ambiente no momento do docker run, essa configuracão está localizada no arquivo Dockerrun.aws.json hospedado no S3.
+Este repositório possui um Dockerfile para instalar e subir aplicação Python, sua imagem será construída dinamicamente durante o deploy no Elastic Beanstalk, o token de autorização da aplicação será passado por variável de ambiente no momento do docker run, essa configuracão está localizada no arquivo aws_eb\.ebextensions\environmentvariables.config hospedado no S3.
 
 ## Cenário 1 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS manual
 
@@ -49,13 +49,15 @@ Este repositório possui um Dockerfile para instalar e subir aplicação Python,
 
 - Editar o token da variável GERU_PASS existente no arquivo aws_eb\.ebextensions\environmentvariables.config - Exemplo de um token MTgwNGJmZDNiMDI2NTBjZmIzZDJiMzA2
 
-- Executar o "git commit" e "git push" para atualizar o Git Hub com o novo arquivo aws_eb\.ebextensions\environmentvariables.config
+- Executar o "git commit" e "git push" para atualizar Git Hub com o novo token
+no arquivo aws_eb\.ebextensions\environmentvariables.config
 
 - Executar o seguinte comando docker para realizar o primeiro deploy e a criação do ambiente S3 e Elasctic Beanstalk na AWS: docker run -d --rm -e AWS_ACCESS_KEY_ID='XXXXXXXXXXX' -e AWS_SECRET_ACCESS_KEY='XXXXXXXXXXX' -e VERSAO='1' -e OPCAO='Novo' renatoadsumus/aws_cli:latest
 
 - Executar o seguinte comando docker para os próximos deploys no S3 e Elastic Beanstalk - Atenção para o valor da versão que deve ser alterado a cada deploy.
 run -d --rm -e AWS_ACCESS_KEY_ID='XXXXXXXXXXX' -e AWS_SECRET_ACCESS_KEY='XXXXXXXXXXX' -e VERSAO='2' -e OPCAO='Deploy' renatoadsumus/aws_cli:latest
 
+*** Atenção para incrementar a cada deploy a variável de ambiente -e VERSAO='3'...
 
 A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o código no Git Hub: https://github.com/renatoadsumus/aws_cli.git
 
@@ -70,15 +72,22 @@ A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o códig
 - Próximos deploys usar o job jenkins - Deploy App na AWS 
 
 **Observação**
-- Nesse cenário a versão do deploy no EB, será o valor da construção do build do job.
 - Na saída do console da execução do job terá o valor no token para acessar a aplicação.
+- Avaliar a necessidade de excluir o build da construção por segurança das variáveis AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY.
 
 O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de Renato Coutinho, com o código no Git Hub: https://github.com/renatoadsumus/docker_jenkins.git
+
+Caso queira ter o jenkins no seu ambiente da AWS:
+- git clone https://github.com/renatoadsumus/docker_jenkins.git
+- Zipar a pasta .ebextensions e o arquivo Dockerrun.aws.json
+- Criar ambiente EB com Docker e realizar upload do Zip gerado no passo anterior
+- Criar dois jobs como pipeline as code: Criar Ambiente AWS e Deploy Ambiente AWS, ambos jenkinsfile estão no repositório.
 
 
 # Roadmap de melhoria:
 - Ter um job único para criar ambiente e realizar deploy.
 - Configurar "Swap Environment URLs" no EB para utilizar deploy Blue/Green.
+- Ter AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY como credencial segura
 
 
 # Arquitetura
