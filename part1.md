@@ -77,7 +77,7 @@ A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o códig
 
 O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de Renato Coutinho, com o código no Git Hub: https://github.com/renatoadsumus/docker_jenkins.git
 
-Caso queira ter o jenkins no seu ambiente da AWS:
+# Caso queira ter o jenkins no seu ambiente da AWS:
 - git clone https://github.com/renatoadsumus/docker_jenkins.git
 - Zipar a pasta .ebextensions e o arquivo Dockerrun.aws.json
 - Criar ambiente EB com Docker e realizar upload do Zip gerado no passo anterior
