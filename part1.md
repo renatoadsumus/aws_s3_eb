@@ -63,7 +63,7 @@ A imagem renatoadsumus/aws_cli:latest está hospedada no Docker Hub com o códig
 
 ## Cenário 3 - Deploy Elastic Beanstalk - upload e criação de ambiente AWS automatizado utilizando o jenkins como serviço.
 
-- Acessar o jenkins no seguinte endereço: http://jenkins-env-1.mtwr8ztwbd.us-east-1.elasticbeanstalk.com/
+- Acessar o jenkins no seguinte endereço: http://jenkins-env.xs2bv7nbdp.us-east-1.elasticbeanstalk.com/
 - Usuario: geru
 - Senha: Geru@2018
 
