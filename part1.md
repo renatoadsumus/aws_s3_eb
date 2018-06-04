@@ -5,7 +5,7 @@ Esse documento tem como objetivo descrever os passos necessários do processo de
 
 # Deploy:
 
-Diante da diversidade de opções de serviços existentes na AWS com a capacidade de realizar deploy de container docker como por exemplo: Opsworks provisionando a instalação do Docker através do Puppet ou Chef , Amazon Container Service ou diretamente utilizando EC2, escolhi a arquitetura com Elasctic Beanstalk e S3 por uma questão de simplicidade e pela oportunidade de usar mais de um serviço da AWS. 
+Diante da diversidade de opções de serviços existentes na AWS com a capacidade de realizar deploy de container docker como por exemplo: Opsworks provisionando a instalação do Docker através do Puppet ou Chef , Amazon Container Service ou diretamente utilizando EC2, como também a possibilidade de alterar a aplicação para deixar de usar a variável GERU_PASS e começar a buscar essa informação de um banco NO SQL por exemplo. Escolhi a arquitetura com Elasctic Beanstalk e S3 por uma questão de simplicidade e pela oportunidade de usar mais de um serviço da AWS. 
 
 Existem três cenários para realizar deploy de uma nova versão da aplicação da Geru, a diferença entre os cenários estão relacionados com o grau de automação do processo de deploy, sendo último cenário todo realizado pelo jenkins.
 
