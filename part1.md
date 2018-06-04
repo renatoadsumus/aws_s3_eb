@@ -82,6 +82,7 @@ O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de
 - git clone https://github.com/renatoadsumus/docker_jenkins.git
 - Zipar a pasta .ebextensions e o arquivo Dockerrun.aws.json
 - Criar ambiente EB com Docker com a possibilidade de realizar SSH na instância EC2
+- Escolher EC2 instance type: t2.small no momento de criar o EB
 - Realizar upload do Zip gerado no passo anterior
 - Criar os jobs abaixo como pipeline as code:
 - Criar Ambiente AWS - https://github.com/renatoadsumus/geru_app/tree/master/jenkins/criar_ambiente_aws/Jenkinsfile
