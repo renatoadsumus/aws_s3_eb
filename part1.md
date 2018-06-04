@@ -86,7 +86,9 @@ O jenkins desse cenário está hospedado no Elastic Beanstalk da AWS na conta de
 - Criar os jobs abaixo como pipeline as code:
 - Criar Ambiente AWS - https://github.com/renatoadsumus/geru_app/tree/master/jenkins/criar_ambiente_aws/Jenkinsfile
 - Deploy Ambiente AWS - https://github.com/renatoadsumus/geru_app/blob/master/jenkins/deploy_ambiente_aws/Jenkinsfile
-
+- Conectar por SSH na instância EC2 onde jenkins foi instalado
+- Executar docker exec CONTAINER_ID cat /var/jenkins_home/secrets/initialAdminPassword para configurar o jenkins
+- Observar se a pasta ls -l /var/run/docker.sock está com permissão 666
 
 # Roadmap de melhoria:
 - Ter um job único para criar ambiente e realizar deploy.
